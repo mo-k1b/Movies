@@ -1,0 +1,6 @@
+com.example.movies
+com.example.movies.controller
+com.example.movies.model
+com.example.movies.repository
+com.example.movies.service
+org.example

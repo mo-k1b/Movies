@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.example.movies"},{"l":"com.example.movies.controller"},{"l":"com.example.movies.model"},{"l":"com.example.movies.repository"},{"l":"com.example.movies.service"},{"l":"org.example"}];updateSearchResults();

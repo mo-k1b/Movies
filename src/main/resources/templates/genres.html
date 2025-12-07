@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genres - Movies</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎬</text></svg>">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .genre-card {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .genre-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .genre-description {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a th:href="@{/}">MOVIES</a>
+                </div>
+                <div style="flex: 1;"></div>
+                <div class="auth-controls">
+                    <span th:if="${loggedInUser != null}">
+                        <a th:href="@{/favorites}">My List</a>
+                    </span>
+                    <span th:if="${loggedInUser != null}" th:text="${loggedInUser.username}"
+                        style="opacity: 0.7;"></span>
+                    <a th:if="${loggedInUser != null}" th:href="@{/logout}">Sign Out</a>
+                    <div th:if="${loggedInUser == null}" style="display: flex; gap: 15px;">
+                        <a th:href="@{/register}" class="btn-secondary">Register</a>
+                        <a th:href="@{/login}" class="btn-primary">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <h2 style="margin-bottom: 30px;">Browse by Genre</h2>
+
+        <div class="genre-grid">
+            <a th:each="genre, iterStat : ${genres}" th:href="@{/browse(genre=${genre})}" class="genre-card">
+                <div class="genre-name" th:text="${genre}">Action</div>
+                <div class="genre-description" th:text="${genre == 'Action' ? 'High-energy thrills and explosive sequences' :
+                               genre == 'Adventure' ? 'Epic journeys and exciting quests' :
+                               genre == 'Animation' ? 'Animated stories for all ages' :
+                               genre == 'Biography' ? 'Real-life stories of remarkable people' :
+                               genre == 'Comedy' ? 'Laugh-out-loud humor and wit' :
+                               genre == 'Crime' ? 'Gripping tales of law and disorder' :
+                               genre == 'Drama' ? 'Emotional depth and compelling narratives' :
+                               genre == 'Fantasy' ? 'Magical worlds and mythical adventures' :
+                               genre == 'History' ? 'Stories from the past brought to life' :
+                               genre == 'Horror' ? 'Spine-chilling scares and suspense' :
+                               genre == 'Mystery' ? 'Puzzling plots and hidden secrets' :
+                               genre == 'Romance' ? 'Love stories that touch the heart' :
+                               genre == 'Sci-Fi' ? 'Futuristic visions and scientific wonders' :
+                               genre == 'Thriller' ? 'Edge-of-your-seat tension and twists' :
+                               genre == 'War' ? 'Epic battles and wartime stories' :
+                               genre == 'Western' ? 'Cowboys, outlaws, and frontier tales' :
+                               'Discover amazing movies'}">
+                    Description
+                </div>
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Movies Inc. Powered by Spring Boot.</p>
+    </footer>
+
+</body>
+
+</html>

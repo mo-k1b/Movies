@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${movie.title} + ' - Movies'">Movie Details</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎬</text></svg>">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-color: #141414; color: white;">
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a th:href="@{/}">MOVIES</a>
+                </div>
+                <div style="flex: 1;"></div>
+                <div class="auth-controls">
+                    <span th:if="${loggedInUser != null}">
+                        <a th:href="@{/favorites}">My List</a>
+                    </span>
+                    <span th:if="${loggedInUser != null}" th:text="${loggedInUser.username}"
+                        style="opacity: 0.7;"></span>
+                    <a th:if="${loggedInUser != null}" th:href="@{/logout}">Sign Out</a>
+                    <div th:if="${loggedInUser == null}" style="display: flex; gap: 15px;">
+                        <a th:href="@{/register}" class="btn-secondary">Register</a>
+                        <a th:href="@{/login}" class="btn-primary">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 50px;">
+        <!-- Banner/Hero -->
+        <div
+            style="background-color: #222; padding: 30px; border-radius: 8px; display: flex; gap: 40px; align-items: flex-start;">
+            <div>
+                <img th:src="${movie.poster}" onerror="this.src='/images/placeholder.png'"
+                    style="width: 300px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);" alt="Poster">
+            </div>
+            <div style="flex: 1;">
+                <h1 th:text="${movie.title}" style="font-size: 3rem; margin-bottom: 20px; color: white;">Title</h1>
+
+                <!-- Enhanced Metadata with Color-Coded Rating -->
+                <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span th:text="${movie.year}" style="font-size: 1.2rem; font-weight: bold; color: #ccc;">2024</span>
+                    <span style="color: #666;">|</span>
+                    <span th:text="${movie.runtime} + ' min'" style="font-size: 1.2rem; color: #ccc;">120 min</span>
+                    <span style="color: #666;">|</span>
+                    <!-- Color-coded rating badge -->
+                    <span
+                        th:style="${movie.averageRating >= 8.0 ? 'background: #28a745;' : (movie.averageRating >= 6.0 ? 'background: #ffc107; color: #000;' : 'background: #dc3545;')} + ' padding: 8px 16px; border-radius: 6px; font-weight: bold; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 5px;'">
+                        <span>★</span>
+                        <span th:text="${movie.averageRating} + '/10'">8.5/10</span>
+                    </span>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <span th:each="genre : ${movie.genres}" th:text="${genre}"
+                        style="background: #e50914; padding: 6px 14px; border-radius: 4px; margin-right: 8px; font-size: 0.95rem; display: inline-block; margin-bottom: 8px;">Genre</span>
+                </div>
+
+                <h3 style="margin-bottom: 12px; color: white;">Synopsis</h3>
+                <p th:text="${movie.description_full}" style="line-height: 1.8; color: #ccc; font-size: 1.05rem;">
+                    Plot...</p>
+
+                <!-- Action Buttons -->
+                <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+                    <!-- Watch Trailer Button -->
+                    <div th:if="${movie.yt_trailer_code != null}">
+                        <a href="#trailer" class="btn-trailer">
+                            ▶ Watch Trailer
+                        </a>
+                    </div>
+                    <div th:if="${movie.yt_trailer_code == null}">
+                        <span class="trailer-unavailable">Trailer Not Available</span>
+                    </div>
+
+                    <!-- Add to Favorites Button -->
+                    <div th:if="${loggedInUser != null}">
+                        <form method="post" th:action="@{/movie/{id}/favorite(id=${movie.id})}"
+                            style="display: inline;">
+                            <button type="submit" class="btn-favorite">
+                                <span th:if="${isFavorite}">★ Remove from Favorites</span>
+                                <span th:unless="${isFavorite}">☆ Add to Favorites</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div th:if="${loggedInUser == null}">
+                        <a th:href="@{/login}" class="btn-favorite">Login to Add Favorites</a>
+                    </div>
+
+                    <!-- IMDb Link -->
+                    <a th:if="${movie.imdb_code != null}"
+                        th:href="@{'https://www.imdb.com/title/' + ${movie.imdb_code}}" target="_blank"
+                        style="padding: 14px 28px; background: #f5c518; color: black; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-flex; align-items: center;">
+                        View on IMDb
+                    </a>
+                </div>
+
+                <!-- Cast Section -->
+                <div class="cast-section" th:if="${movie.cast != null && !movie.cast.isEmpty()}">
+                    <h3 style="margin-bottom: 12px; color: white;">Cast</h3>
+                    <div class="cast-list">
+                        <span th:each="actor : ${movie.cast}" th:text="${actor}" class="cast-member">Actor Name</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trailer -->
+        <div id="trailer" th:if="${movie.yt_trailer_code != null}" style="margin-top: 50px;">
+            <h3 style="margin-bottom: 20px; font-size: 1.8rem; color: white;">Official Trailer</h3>
+            <div
+                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+                <iframe th:src="'https://www.youtube.com/embed/' + ${movie.yt_trailer_code}"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Movies Inc. Powered by Spring Boot.</p>
+    </footer>
+
+</body>
+
+</html>

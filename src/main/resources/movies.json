@@ -1,0 +1,262 @@
+[
+    {
+        "id": 1001,
+        "title": "Oppenheimer",
+        "year": 2023,
+        "rating": 8.5,
+        "runtime": 180,
+        "genres": [
+            "Biography",
+            "Drama",
+            "History"
+        ],
+        "summary": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+        "description_full": "During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project. Oppenheimer and a team of scientists spend years developing and designing the atomic bomb. Their work comes to fruition on July 16, 1945, as they witness the world's first nuclear explosion, forever changing the course of history.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/rLb2cs60836t5iDa4cTeTJks5UE.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+        "imdb_code": "tt15398776",
+        "yt_trailer_code": "uYPbbksJxIg",
+        "cast": [
+            "Cillian Murphy",
+            "Emily Blunt",
+            "Matt Damon",
+            "Robert Downey Jr.",
+            "Florence Pugh"
+        ]
+    },
+    {
+        "id": 1002,
+        "title": "Barbie",
+        "year": 2023,
+        "rating": 7.0,
+        "runtime": 114,
+        "genres": [
+            "Adventure",
+            "Comedy",
+            "Fantasy"
+        ],
+        "summary": "Barbie suffers a crisis that leads her to question her world and her existence.",
+        "description_full": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
+        "imdb_code": "tt1517268",
+        "yt_trailer_code": "pBk4NYhUOQM",
+        "cast": [
+            "Margot Robbie",
+            "Ryan Gosling",
+            "America Ferrera",
+            "Kate McKinnon",
+            "Will Ferrell"
+        ]
+    },
+    {
+        "id": 1003,
+        "title": "Dune: Part Two",
+        "year": 2024,
+        "rating": 8.8,
+        "runtime": 166,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "summary": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+        "description_full": "Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+        "imdb_code": "tt15239678",
+        "yt_trailer_code": "Way9Dexny3w",
+        "cast": [
+            "Timothée Chalamet",
+            "Zendaya",
+            "Rebecca Ferguson",
+            "Josh Brolin",
+            "Austin Butler"
+        ]
+    },
+    {
+        "id": 1004,
+        "title": "Spider-Man: Across the Spider-Verse",
+        "year": 2023,
+        "rating": 8.6,
+        "runtime": 140,
+        "genres": [
+            "Animation",
+            "Action",
+            "Adventure"
+        ],
+        "summary": "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence.",
+        "description_full": "After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself pitted against the other Spiders and must set out on his own to save those he loves most.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/4HodYYKEIsGOdinkGi2Ucz6X9i0.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+        "imdb_code": "tt9362722",
+        "yt_trailer_code": "cqGjhVJWtEg"
+    },
+    {
+        "id": 1005,
+        "title": "The Super Mario Bros. Movie",
+        "year": 2023,
+        "rating": 7.1,
+        "runtime": 92,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "summary": "A plumber named Mario travels through an underground labyrinth with his brother, Luigi, trying to save a captured princess.",
+        "description_full": "While working underground to fix a water main, Brooklyn plumbers-and brothers-Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2K5ggV6.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/qNBAXBIQlnOThrVvA6mA2K5ggV6.jpg",
+        "imdb_code": "tt5433140",
+        "yt_trailer_code": "TnGl01FkMMo"
+    },
+    {
+        "id": 1006,
+        "title": "John Wick: Chapter 4",
+        "year": 2023,
+        "rating": 7.7,
+        "runtime": 169,
+        "genres": [
+            "Action",
+            "Crime",
+            "Thriller"
+        ],
+        "summary": "John Wick uncovers a path to defeating The High Table.",
+        "description_full": "With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/7I6VUdPjEtte4UyrmcCj6774qTp.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+        "imdb_code": "tt10366206",
+        "yt_trailer_code": "qEVUtrk8_B4"
+    },
+    {
+        "id": 1007,
+        "title": "Avatar: The Way of Water",
+        "year": 2022,
+        "rating": 7.6,
+        "runtime": 192,
+        "genres": [
+            "Science Fiction",
+            "Adventure",
+            "Action"
+        ],
+        "summary": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora.",
+        "description_full": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/8rpDcsfLJypbO6vREc05475qg9.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+        "imdb_code": "tt1630029",
+        "yt_trailer_code": "d9MyqF3kNKu"
+    },
+    {
+        "id": 1008,
+        "title": "Top Gun: Maverick",
+        "year": 2022,
+        "rating": 8.3,
+        "runtime": 130,
+        "genres": [
+            "Action",
+            "Drama"
+        ],
+        "summary": "After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past.",
+        "description_full": "After more than thirty years of service as one of the Navy’s top aviators, and dodging the advancement in rank that would ground him, Pete “Maverick” Mitchell finds himself training a detachment of TOP GUN graduates for a specialized mission the likes of which no living pilot has ever seen.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/628Dep6AxEtDxjZoGP78TsOxYbK.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
+        "imdb_code": "tt1745960",
+        "yt_trailer_code": "giXco2jaZ_4"
+    },
+    {
+        "id": 1009,
+        "title": "Everything Everywhere All At Once",
+        "year": 2022,
+        "rating": 7.9,
+        "runtime": 139,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Science Fiction"
+        ],
+        "summary": "A middle-aged Chinese immigrant is swept up into an insane adventure in which she alone can save the existence by exploring other universes.",
+        "description_full": "An aging Chinese immigrant is swept up into an insane adventure, where she alone can save what's important to her by connecting with the lives she could have led in other universes.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/fIWIBS2E9qQqV8O8V7uP5jL0g6J.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/rKvCys0f17Myoa19CDE32Ya40yN.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/rKvCys0f17Myoa19CDE32Ya40yN.jpg",
+        "imdb_code": "tt6710474",
+        "yt_trailer_code": "wxN1T1uxQ2g"
+    },
+    {
+        "id": 1010,
+        "title": "Godzilla Minus One",
+        "year": 2023,
+        "rating": 8.3,
+        "runtime": 125,
+        "genres": [
+            "Science Fiction",
+            "Horror",
+            "Action"
+        ],
+        "summary": "In postwar Japan, Godzilla brings new devastation to an already scorched landscape.",
+        "description_full": "Postwar Japan is at its lowest point when a new crisis emerges in the form of a giant monster, baptized in the horrific power of the atomic bomb.",
+        "language": "Japanese",
+        "background_image": "https://image.tmdb.org/t/p/original/zIy41j0yJ9n2d0j2g1x2g4f8.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/hkxxMIGaiCTmrEArK7J56JTKUlB.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/hkxxMIGaiCTmrEArK7J56JTKUlB.jpg",
+        "imdb_code": "tt23289160",
+        "yt_trailer_code": "VvSrkTy3d_M"
+    },
+    {
+        "id": 1011,
+        "title": "Poor Things",
+        "year": 2023,
+        "rating": 7.8,
+        "runtime": 141,
+        "genres": [
+            "Science Fiction",
+            "Romance",
+            "Comedy"
+        ],
+        "summary": "The incredible tale and fantastical evolution of Bella Baxter, a young woman brought back to life by the brilliant and unorthodox scientist Dr. Godwin Baxter.",
+        "description_full": "Brought back to life by an unorthodox scientist, a young woman runs off with a debauched lawyer on a whirlwind adventure across the continents. Free from the prejudices of her times, she grows steadfast in her purpose to stand for equality and liberation.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/bQLrHIRgV6B7zBvn4y8a4F159X.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/kCGlIMHnOm8JPXq3rXM6c6Mr5V.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/kCGlIMHnOm8JPXq3rXM6c6Mr5V.jpg",
+        "imdb_code": "tt14230458",
+        "yt_trailer_code": "RlbR5N6veqw"
+    },
+    {
+        "id": 1012,
+        "title": "The Batman",
+        "year": 2022,
+        "rating": 7.7,
+        "runtime": 176,
+        "genres": [
+            "Crime",
+            "Mystery",
+            "Thriller"
+        ],
+        "summary": "When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption.",
+        "description_full": "In his second year of fighting crime, Batman uncovers corruption in Gotham City that connects to his own family while facing a serial killer known as the Riddler.",
+        "language": "English",
+        "background_image": "https://image.tmdb.org/t/p/original/5P8SmMzSNYikXpxil6BYzJ16611.jpg",
+        "medium_cover_image": "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50x9TfdlnJR.jpg",
+        "large_cover_image": "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50x9TfdlnJR.jpg",
+        "imdb_code": "tt1877830",
+        "yt_trailer_code": "mqqft2x_Aa4"
+    }
+]

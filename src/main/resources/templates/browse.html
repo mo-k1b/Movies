@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle} + ' - Movies'">Browse Movies</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎬</text></svg>">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a th:href="@{/}">MOVIES</a>
+                </div>
+
+                <div class="search-bar">
+                    <form th:action="@{/browse}" method="get">
+                        <input type="text" name="search" placeholder="Search movies...">
+                    </form>
+                </div>
+
+                <div class="auth-controls">
+                    <span th:if="${loggedInUser != null}">
+                        <a th:href="@{/favorites}">My List</a>
+                    </span>
+
+                    <span th:if="${loggedInUser != null}" th:text="${loggedInUser.username}"
+                        style="opacity: 0.7;"></span>
+                    <a th:if="${loggedInUser != null}" th:href="@{/logout}">Sign Out</a>
+
+                    <div th:if="${loggedInUser == null}" style="display: flex; gap: 15px;">
+                        <a th:href="@{/register}" class="btn-secondary">Register</a>
+                        <a th:href="@{/login}" class="btn-primary">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="section-header">
+            <h2 th:text="${pageTitle}">All Movies</h2>
+            <div class="sort-controls">
+                <label for="sortBy" style="color: var(--text-secondary); margin-right: 10px;">Sort by:</label>
+                <select id="sortBy" onchange="sortMovies(this.value)">
+                    <option value="default">Default</option>
+                    <option value="title-asc">Title (A-Z)</option>
+                    <option value="title-desc">Title (Z-A)</option>
+                    <option value="year-desc">Year (Newest)</option>
+                    <option value="year-asc">Year (Oldest)</option>
+                    <option value="rating-desc">Rating (Highest)</option>
+                    <option value="rating-asc">Rating (Lowest)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Empty state message -->
+        <div th:if="${movies.isEmpty()}" style="text-align: center; padding: 80px 20px;">
+            <div style="font-size: 4rem; margin-bottom: 20px; opacity: 0.3;">🎬</div>
+            <h2 style="color: var(--text-secondary); font-size: 1.5rem; margin-bottom: 10px;">No Movies Found</h2>
+            <p style="color: var(--text-secondary); font-size: 1rem;">
+                <span th:if="${pageTitle == 'My Favorites'}">You haven't added any movies to your favorites yet.</span>
+                <span th:unless="${pageTitle == 'My Favorites'}">No movies match your criteria.</span>
+            </p>
+            <a th:href="@{/}" class="btn-primary" style="margin-top: 20px; display: inline-block;">Browse Movies</a>
+        </div>
+
+        <section class="movie-list" id="movieGrid" th:unless="${movies.isEmpty()}">
+            <div class="movie-card" th:each="movie : ${movies}" onclick="location.href=this.querySelector('a').href">
+                <a th:href="@{/movie/{id}(id=${movie.id})}" style="display: none;"></a>
+                <div class="poster-wrapper">
+                    <img th:src="${movie.poster}" alt="Poster" onerror="this.src='/images/placeholder.png'">
+                    <div class="card-overlay">
+                        <div class="play-icon-overlay">▶</div>
+                    </div>
+                </div>
+
+                <div class="movie-info-visible">
+                    <h3 th:text="${movie.title}">Title</h3>
+                    <div class="movie-meta-row">
+                        <span th:text="${movie.year}">2023</span>
+                        <span><span class="rating-star">★</span><span th:text="${movie.averageRating}">8.5</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="load-more-container" style="text-align: center; margin: 40px 0;">
+            <button id="loadMoreBtn" class="btn-primary" onclick="loadMore()">Show More</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Movies Inc. Powered by Spring Boot.</p>
+    </footer>
+
+    <script>
+        // Client-side pagination and sorting logic
+        let visibleCount = 20;
+        let allCards = Array.from(document.querySelectorAll('.movie-card'));
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const movieGrid = document.getElementById('movieGrid');
+
+        // Store original order
+        let currentOrder = [...allCards];
+
+        function sortMovies(sortBy) {
+            // Get all movie data
+            const moviesData = allCards.map(card => {
+                const title = card.querySelector('h3').textContent;
+                const year = parseInt(card.querySelector('.movie-meta-row span:first-child').textContent) || 0;
+                const rating = parseFloat(card.querySelector('.rating-star + span').textContent) || 0;
+                return { card, title, year, rating };
+            });
+
+            // Sort based on selection
+            switch (sortBy) {
+                case 'title-asc':
+                    moviesData.sort((a, b) => a.title.localeCompare(b.title));
+                    break;
+                case 'title-desc':
+                    moviesData.sort((a, b) => b.title.localeCompare(a.title));
+                    break;
+                case 'year-desc':
+                    moviesData.sort((a, b) => b.year - a.year);
+                    break;
+                case 'year-asc':
+                    moviesData.sort((a, b) => a.year - b.year);
+                    break;
+                case 'rating-desc':
+                    moviesData.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'rating-asc':
+                    moviesData.sort((a, b) => a.rating - b.rating);
+                    break;
+                default:
+                    // Reset to original order
+                    currentOrder = [...allCards];
+                    updateDisplay();
+                    return;
+            }
+
+            // Update current order
+            currentOrder = moviesData.map(item => item.card);
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            // Clear and re-append in new order
+            movieGrid.innerHTML = '';
+            currentOrder.forEach(card => movieGrid.appendChild(card));
+
+            // Reset visible count and update visibility
+            visibleCount = 20;
+            updateVisibility();
+        }
+
+        function updateVisibility() {
+            let shown = 0;
+            currentOrder.forEach((card, index) => {
+                if (index < visibleCount) {
+                    card.style.display = 'block';
+                    shown++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount >= currentOrder.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-block';
+            }
+        }
+
+        function loadMore() {
+            visibleCount += 20;
+            updateVisibility();
+        }
+
+        // Init
+        updateVisibility();
+    </script>
+
+</body>
+
+</html>
