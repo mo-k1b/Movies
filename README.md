@@ -26,7 +26,7 @@ Internet connection (if using external APIs like TMDB)
 
 # Pull requests are welcome!
 
-#Link
+# Link
  https://movies-demo-access.loca.lt
  Password: 193.224.106.21
  
