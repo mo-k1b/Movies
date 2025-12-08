@@ -1,40 +1,47 @@
-# Movies
-A simple movie website where users can register, log in, and browse detailed information about movies.
+# Movies Website
 
-This project allows users to create an account, view popular movies, search for titles, and open movie detail pages including rating, genre, cast, and descriptions.
+A Spring Boot application for browsing movies, managing favorites, and user authentication.
 
-# Prerequisites
+## Tech Stack
+- **Backend**: Spring Boot 3.2, Java 17+
+- **Database**: MongoDB (Atlas)
+- **Security**: BCrypt Password Hashing
+- **Testing**: JUnit 5, Mockito, Playwright (E2E), JMeter (Performance)
 
-Web browser (Chrome, Edge, Firefox)
+## Prerequisites
+- Java 17 or higher
+- Maven 3.6+
 
-Internet connection (if using external APIs like TMDB)
+## Configuration
+The application connects to a MongoDB Atlas cluster. Ensure `src/main/resources/application.properties` contains valid credentials:
+```properties
+spring.data.mongodb.uri=mongodb+srv://Movies:1010102020@cluster0.8rrhno2.mongodb.net/movies
+```
 
+## How to Run
 
-# Features
+### Option 1: Using Maven (Recommended for Dev)
+Open your terminal, navigate to the `Movies` folder, and run:
+```bash
+cd Movies
+mvn spring-boot:run
+```
 
- User registration & login
+### Option 2: Running the JAR (Production-like)
+Build the project first (from `Movies` folder):
+```bash
+cd Movies
+mvn clean package -DskipTests
+```
+Run the JAR:
+```bash
+java -jar target/movies-0.0.1-SNAPSHOT.jar
+```
 
- Browse movies
+The application will start on **http://localhost:8080**.
 
- Search for titles
-
- Detailed movie info pages
-
- Ratings & genre display
-
-
-
-# Pull requests are welcome!
-
-# Link
- https://movies-demo-access.loca.lt
- Password: 193.224.106.21
- 
-
-
-
-# Contact
-
-Awadh Baodhah – alahmadywork@gmail.com
-
-
+## Testing
+Run unit and integration tests:
+```bash
+mvn test
+```
