@@ -12,11 +12,6 @@ A Spring Boot application for browsing movies, managing favorites, and user auth
 - Java 17 or higher
 - Maven 3.6+
 
-## Configuration
-The application connects to a MongoDB Atlas cluster. Ensure `src/main/resources/application.properties` contains valid credentials:
-```properties
-spring.data.mongodb.uri=mongodb+srv://Movies:1010102020@cluster0.8rrhno2.mongodb.net/movies
-```
 
 ## How to Run
 
