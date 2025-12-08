@@ -1,9 +1,7 @@
 package com.example.movies.controller;
 
-import org.springframework.boot.availability.Availability;
 import org.springframework.boot.availability.AvailabilityChangeEvent;
 import org.springframework.boot.availability.LivenessState;
-import org.springframework.boot.availability.ReadinessState;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +35,6 @@ public class HealthController {
         return ResponseEntity.ok(response);
     }
 
-    // These endpoints are for demonstration and should be secured in production
     @GetMapping("/make-live")
     public String makeLive() {
         AvailabilityChangeEvent.publish(eventPublisher, this, LivenessState.CORRECT);

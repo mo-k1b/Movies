@@ -1,38 +1,37 @@
 package com.example.movies.model;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "favorites")
+@Document(collection = "favorites")
 public class Favorite {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    private Long userId;
-    private int movieId; // ID from external API
+    private String userId; // References User.id (String)
+    private int movieId; // ID from external API (int)
 
     public Favorite() {
     }
 
-    public Favorite(Long userId, int movieId) {
+    public Favorite(String userId, int movieId) {
         this.userId = userId;
         this.movieId = movieId;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

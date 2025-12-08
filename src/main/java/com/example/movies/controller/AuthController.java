@@ -15,6 +15,7 @@ import java.util.Optional;
 public class AuthController {
 
     private final UserRepository userRepository;
+    private final org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder passwordEncoder = new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder();
 
     public AuthController(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -30,7 +31,7 @@ public class AuthController {
         // Simple login: check if user exists by email and password
         User user = userRepository.findByEmail(email).orElse(null);
 
-        if (user != null && user.getPassword().equals(password)) {
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
             session.setAttribute("user", user);
             return "redirect:/";
         } else {
@@ -62,7 +63,7 @@ public class AuthController {
 
         User newUser = new User();
         newUser.setEmail(email);
-        newUser.setPassword(password); // in real app, hash this!
+        newUser.setPassword(passwordEncoder.encode(password)); // Hashing password
         newUser.setPhoneNumber(phoneNumber);
         newUser.setUsername(username);
 
